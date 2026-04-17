@@ -1,0 +1,188 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Paleta roxo ── */
+:root {
+  --p50:  #EEEDFE;
+  --p100: #CECBF6;
+  --p200: #AFA9EC;
+  --p400: #7F77DD;
+  --p600: #534AB7;
+  --p800: #3C3489;
+  --p900: #26215C;
+}
+
+/* ── Fundo geral ── */
+body,
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a0f2e;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Div raiz do componente ── */
+#root > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ── Card do form ── */
+form {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--p100);
+}
+
+/* ── Pseudo-título ── */
+form::before {
+  content: "Perfil do usuário";
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--p900);
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: -4px;
+}
+
+/* ── Div nome + email ── */
+form > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Labels inline (esconde — placeholder identifica) ── */
+form > div > label {
+  display: none;
+}
+
+/* ── Labels que envolvem campos (Bio, Função) ── */
+form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+form > label > span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--p600);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Inputs, textarea e select ── */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  background: var(--p50);
+  border: 1px solid var(--p100);
+  border-radius: 10px;
+  color: var(--p900);
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  height: 40px;
+  padding: 0 12px;
+}
+
+textarea {
+  padding: 10px 12px;
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%237F77DD' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* Hover */
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--p200);
+}
+
+/* Focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--p400);
+  box-shadow: 0 0 0 3px rgba(127, 119, 221, .15);
+  background: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--p200);
+  font-size: 13px;
+}
+
+/* ── Label da Função: inline ── */
+form > label:last-of-type {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+form > label:last-of-type > span {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Botão submit ── */
+input[type="submit"] {
+  align-self: flex-end;
+  height: 40px;
+  padding: 0 28px;
+  background: var(--p600);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: background .15s, transform .1s;
+}
+
+input[type="submit"]:hover {
+  background: var(--p800);
+}
+
+input[type="submit"]:active {
+  transform: scale(.97);
+}
