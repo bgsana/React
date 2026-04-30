@@ -1,9 +1,16 @@
 import { useState } from "react";
 import "./ImcCalc.css"
+import Button from "./Button";
 
 const ImcCalc = ({ calcImc }) => {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
+
+    const clearForms = (e) => {
+        e.preventDefault();
+        setHeight("");
+        setWeight("");
+    }
 
     /* Permitir apenas números */
     const validDigits = (text) => {
@@ -48,8 +55,8 @@ const ImcCalc = ({ calcImc }) => {
                 </div>
             </div>
             <div className="action-control">
-                <button/>
-                <button/>
+                <Button id="calc-btn" text="Calcular" action={(e) => calcImc(e, height, weight)}/>
+                <Button id="clear-btn" text="Limpar" action={clearForms}/>
             </div>
         </form>
     </div>
