@@ -1,0 +1,129 @@
+/* ── Result header ─────────────────────────────────────── */
+#result-container {
+  animation: fadeIn 0.4s ease both;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+#imc-number,
+#imc-info {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+#imc-number {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+#imc-number span,
+#imc-info span {
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* IMC status color classes — adicione em App.jsx conforme seu data */
+.underweight  { color: #38bdf8; background: rgba(56,189,248,0.1); }
+.normal       { color: #4ade80; background: rgba(74,222,128,0.1); }
+.overweight   { color: #fb923c; background: rgba(251,146,60,0.1); }
+.obesity-1    { color: #f87171; background: rgba(248,113,113,0.1); }
+.obesity-2    { color: #f43f5e; background: rgba(244,63,94,0.1); }
+.obesity-3    { color: #dc2626; background: rgba(220,38,38,0.1); }
+
+/* ── Divider ───────────────────────────────────────────── */
+#result-container h3 {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 1rem 0 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#result-container h3::before,
+#result-container h3::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Table ─────────────────────────────────────────────── */
+.imc-table {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 0.8fr;
+  padding: 0.5rem 1rem;
+  background: rgba(99,102,241,0.08);
+  border-bottom: 1px solid var(--border);
+}
+
+.table-header h4 {
+  font-family: var(--font-head);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.table-data {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 0.8fr;
+  padding: 0.42rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+}
+
+.table-data:last-child {
+  border-bottom: none;
+}
+
+.table-data:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.table-data p {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+/* Linha destacada ao coincidir com o IMC calculado */
+.table-data.active {
+  background: rgba(99,102,241,0.1);
+  border-left: 2px solid var(--accent);
+}
+
+.table-data.active p {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
