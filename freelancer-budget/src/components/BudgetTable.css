@@ -1,0 +1,140 @@
+#result-container {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Resultados */
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: var(--bg-surface);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.result-item strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.result-value {
+  font-weight: 700;
+  padding: 0.2rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* Badge de urgência */
+.urgent-badge {
+  background: rgba(244, 63, 94, 0.15);
+  border-left: 3px solid #f43f5e;
+}
+
+.urgent-badge strong {
+  color: #f43f5e;
+}
+
+.urgent-badge span {
+  color: #f43f5e;
+  font-weight: 700;
+  background: rgba(244, 63, 94, 0.2);
+  padding: 0.2rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* Cores das complexidades */
+.Baixa {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.Média {
+  color: #fb923c;
+  background: rgba(251, 146, 60, 0.1);
+}
+
+.Alta {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+/* Título */
+#result-container h3 {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 1.5rem 0 1rem;
+  text-align: center;
+}
+
+/* Tabela */
+.budget-table {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  padding: 0.75rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.table-data {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: background 0.2s ease;
+}
+
+.table-data:last-child {
+  border-bottom: none;
+}
+
+.table-data:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Linha ativa (correspondente ao orçamento) */
+.table-data.active {
+  background: rgba(99, 102, 241, 0.15);
+  border-left: 3px solid var(--accent);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.table-data.active span {
+  color: var(--text-primary);
+}
+
+/* Botão */
+#back-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
